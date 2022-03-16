@@ -7,27 +7,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>AZ Business</title>
   <!-- plugins:css -->
-  <link rel="stylesheet" href="vendors/feather/feather.css">
-  <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css">
-  <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="{{asset('vendors/feather/feather.css')}}">
+  <link rel="stylesheet" href="{{asset('vendors/ti-icons/css/themify-icons.css')}}">
+  <link rel="stylesheet" href="{{asset('vendors/css/vendor.bundle.base.css')}}">
   <!-- endinject -->
   <!-- Plugin css for this page -->
-  <link rel="stylesheet" href="vendors/datatables.net-bs4/dataTables.bootstrap4.css">
-  <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css">
-  <link rel="stylesheet" type="text/css" href="js/select.dataTables.min.css">
+  <link rel="stylesheet" href="{{asset('vendors/datatables.net-bs4/dataTables.bootstrap4.css')}}">
+  <link rel="stylesheet" href="{{asset('vendors/ti-icons/css/themify-icons.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{asset('js/select.dataTables.min.css')}}">
   <!-- End plugin css for this page -->
   <!-- inject:css -->
-  <link rel="stylesheet" href="css/vertical-layout-light/style.css">
+  <link rel="stylesheet" href="{{asset('css/vertical-layout-light/style.css')}}">
   <!-- endinject -->
-  <link rel="shortcut icon" href="images/favicon.png" />
-</head>
+  <link rel="shortcut icon" href="{{asset('images/favicon.png')}}" />
+ 
+  <livewire:styles> 
 <body>
-  <div class="container-scroller">
+  
+<div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo mr-5" href="index.html"><img src="images/logo.svg" class="mr-2" alt="logo"/></a>
-        <a class="navbar-brand brand-logo-mini" href="index.html"><img src="images/logo-mini.svg" alt="logo"/></a>
+        <a class="navbar-brand brand-logo mr-5" href="index.html"><img src="{{asset('images/logo.svg')}}" class="mr-2" alt="logo"/></a>
+        <a class="navbar-brand brand-logo-mini" href="index.html"><img src="{{asset('images/logo-mini.svg')}}" alt="logo"/></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -96,7 +98,7 @@
           </li>
           <li class="nav-item nav-profile dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-              <img src="images/faces/face28.jpg" alt="profile"/>
+              <img src="{{asset('images/faces/face28.jpg')}}" alt="profile"/>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
               <a class="dropdown-item">
@@ -236,7 +238,7 @@
             </div>
             <ul class="chat-list">
               <li class="list active">
-                <div class="profile"><img src="images/faces/face1.jpg" alt="image"><span class="online"></span></div>
+                <div class="profile"><img src="{{asset('images/faces/face1.jpg')}}" alt="image"><span class="online"></span></div>
                 <div class="info">
                   <p>Thomas Douglas</p>
                   <p>Available</p>
@@ -244,7 +246,7 @@
                 <small class="text-muted my-auto">19 min</small>
               </li>
               <li class="list">
-                <div class="profile"><img src="images/faces/face2.jpg" alt="image"><span class="offline"></span></div>
+                <div class="profile"><img src="{{asset('images/faces/face2.jpg')}}" alt="image"><span class="offline"></span></div>
                 <div class="info">
                   <div class="wrapper d-flex">
                     <p>Catherine</p>
@@ -255,7 +257,7 @@
                 <small class="text-muted my-auto">23 min</small>
               </li>
               <li class="list">
-                <div class="profile"><img src="images/faces/face3.jpg" alt="image"><span class="online"></span></div>
+                <div class="profile"><img src="{{asset('images/faces/face3.jpg')}}" alt="image"><span class="online"></span></div>
                 <div class="info">
                   <p>Daniel Russell</p>
                   <p>Available</p>
@@ -263,7 +265,7 @@
                 <small class="text-muted my-auto">14 min</small>
               </li>
               <li class="list">
-                <div class="profile"><img src="images/faces/face4.jpg" alt="image"><span class="offline"></span></div>
+                <div class="profile"><img src="{{asset('images/faces/face4.jpg')}}" alt="image"><span class="offline"></span></div>
                 <div class="info">
                   <p>James Richardson</p>
                   <p>Away</p>
@@ -271,7 +273,7 @@
                 <small class="text-muted my-auto">2 min</small>
               </li>
               <li class="list">
-                <div class="profile"><img src="images/faces/face5.jpg" alt="image"><span class="online"></span></div>
+                <div class="profile"><img src="{{asset('images/faces/face5.jpg')}}" alt="image"><span class="online"></span></div>
                 <div class="info">
                   <p>Madeline Kennedy</p>
                   <p>Available</p>
@@ -279,7 +281,7 @@
                 <small class="text-muted my-auto">5 min</small>
               </li>
               <li class="list">
-                <div class="profile"><img src="images/faces/face6.jpg" alt="image"><span class="online"></span></div>
+                <div class="profile"><img src="{{asset('images/faces/face6.jpg')}}" alt="image"><span class="online"></span></div>
                 <div class="info">
                   <p>Sarah Graves</p>
                   <p>Available</p>
@@ -336,8 +338,21 @@
               <span class="menu-title">How it works</span>
             </a>
           </li>
+
+          <li class="nav-item">
+            <!-- Log Out -->
+            <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                   <button class="btn btn-danger">Log Out</button> 
+                           
+                        </form>
+          </li>
+         
         </ul>
       </nav>
+      
+
+
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
@@ -345,10 +360,11 @@
             <div class="col-md-12 grid-margin">
               <div class="row">
                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                  <h3 class="font-weight-bold">Welcome Luyando</h3>
-                  <h6 class="font-weight-normal mb-0">All systems are running smoothly! You have <span class="text-primary">3 new orders!</span></h6>
+                  <h3 class="font-weight-bold">Hi {{Auth::user()->firstname}} {{Auth::user()->lastname}} Welcome to the Clients Dashboard</h3>
+                             
                 </div>
-                <div class="col-12 col-xl-4">
+              
+                  <div class="col-12 col-xl-4">
                  <div class="justify-content-end d-flex">
                   <div class="dropdown flex-md-grow-1 flex-xl-grow-0">
                     <button class="btn btn-sm btn-light bg-white dropdown-toggle" type="button" id="dropdownMenuDate2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -366,25 +382,25 @@
               </div>
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-6 grid-margin stretch-card">
-              <div class="card tale-bg">
-                <div class="card-people mt-auto">
-                  <img src="images/dashboard/people.svg" alt="people">
-                  <div class="weather-info">
-                    <div class="d-flex">
-                      <div>
-                        <h2 class="mb-0 font-weight-normal">Restaurant name</h2>
-                      </div>
-                      <div class="ml-2">
-                        <h4 class="location font-weight-normal">Lusaka</h4>
-                        <h6 class="font-weight-normal">Woodlands</h6>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+
+<!--Livewire KYC Forms Here-->
+
+ <livewire:kyc/>
+
+<hr>
+<!--End Import-->
+
+<div class="row">
+  
+<div class="col-md-6 grid-margin stretch-card">
+  
+  <!--Livewire Business Profile Starts-->
+
+<livewire:business-profile/>
+
+<!--Livewire Business Profile Ends-->
             </div>
+           
             <div class="col-md-6 grid-margin transparent">
               <div class="row">
                 <div class="col-md-6 mb-4 stretch-card transparent">
@@ -570,27 +586,46 @@
   </div>
   <!-- container-scroller -->
 
-  <!-- plugins:js -->
-  <script src="vendors/js/vendor.bundle.base.js"></script>
+
+   <!-- plugins:js -->
+  <script src="{{asset('vendors/js/vendor.bundle.base.js')}}"></script>
   <!-- endinject -->
   <!-- Plugin js for this page -->
-  <script src="vendors/chart.js/Chart.min.js"></script>
-  <script src="vendors/datatables.net/jquery.dataTables.js"></script>
-  <script src="vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
-  <script src="js/dataTables.select.min.js"></script>
+  <script src="{{asset('vendors/chart.js/Chart.min.js')}}"></script>
+  <script src="{{asset('vendors/datatables.net/jquery.dataTables.js')}}"></script>
+  <script src="{{('vendors/datatables.net-bs4/dataTables.bootstrap4.js')}}"></script>
+  <script src="{{('js/dataTables.select.min.js')}}"></script>
 
   <!-- End plugin js for this page -->
   <!-- inject:js -->
-  <script src="js/off-canvas.js"></script>
-  <script src="js/hoverable-collapse.js"></script>
-  <script src="js/template.js"></script>
-  <script src="js/settings.js"></script>
-  <script src="js/todolist.js"></script>
+  <script src="{{asset('js/off-canvas.js')}}"></script>
+  <script src="{{asset('js/hoverable-collapse.js')}}"></script>
+  <script src="{{asset('js/template.js')}}"></script>
+  <script src="{{asset('js/settings.js')}}"></script>
+  <script src="{{asset('js/todolist.js')}}"></script>
   <!-- endinject -->
   <!-- Custom js for this page-->
-  <script src="js/dashboard.js"></script>
-  <script src="js/Chart.roundedBarCharts.js"></script>
-  <!-- End custom js for this page-->
+  <script src="{{asset('js/dashboard.js')}}"></script>
+  <script src="{{asset('js/Chart.roundedBarCharts.js')}}"></script>
+  
+  
+
+  <!--Livewire tag-->
+  <livewire:scripts> 
+  <script>
+            
+            livewire.on('edit_kyc',() => {
+              document.getElementById('kycform').style.display="block";
+               
+            });
+
+            livewire.on('cancel_kyc',() => {
+               document.getElementById('kycform').style.display="none";
+               
+            });
+
+          
+                        </script>
 </body>
 
 </html>
